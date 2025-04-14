@@ -14,7 +14,7 @@ export default async function BlogList({
   categories?: string[]
   sortOrder?: string
 }) {
-  const supabase = createClient()
+  const supabase = await createClient()
 
   let query = supabase.from("blog_posts").select("*").eq("is_published", true)
 

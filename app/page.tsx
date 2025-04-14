@@ -11,11 +11,11 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 matrix-bg opacity-20"></div>
+        <div className="absolute inset-0 matrix-bg opacity-30"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <div className="inline-block px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium mb-2">
+              <div className="inline-block px-3 py-1 rounded-full bg-accent/20 text-accent text-sm font-medium mb-2">
                 Cybersecurity Engineer
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
@@ -37,7 +37,7 @@ export default function Home() {
             <div className="flex flex-col items-center">
               <div className="relative w-64 h-64 md:w-80 md:h-80 cyber-border rounded-full overflow-hidden mb-6">
                 <Image
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/images/battaglia_antonio_foto.jpg"
                   alt="Cybersecurity Professional"
                   width={400}
                   height={400}
@@ -67,7 +67,7 @@ export default function Home() {
                   <Linkedin className="h-6 w-6 text-accent" />
                 </Link>
                 <Link
-                  href="mailto:your.email@example.com"
+                  href="mailto:antoniobattaglia01@gmail.com"
                   className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
                   aria-label="Email Me"
                 >

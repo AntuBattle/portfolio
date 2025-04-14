@@ -9,9 +9,10 @@ import { createClient } from "@/lib/supabase/server"
 import BlogContent from "@/components/blog-content"
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { slug } = await params
 
-  const { data: post } = await supabase.from("blog_posts").select("title, excerpt").eq("slug", params.slug).single()
+  const { data: post } = await supabase.from("blog_posts").select("title, excerpt").eq("slug", slug).single()
 
   if (!post) {
     return {
@@ -27,12 +28,13 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function BlogPostPage({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { slug } = await params
 
   const { data: post, error } = await supabase
     .from("blog_posts")
     .select("*")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .eq("is_published", true)
     .single()
 

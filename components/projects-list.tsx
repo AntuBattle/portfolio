@@ -47,7 +47,7 @@ export default function ProjectsList() {
   const placeholderProjects = [
     {
       id: "1",
-      title: "Network Vulnerability Scanner",
+      title: "No Database Connection or NO projects in the database - these are placeholders",
       slug: "network-vulnerability-scanner",
       description:
         "An automated tool for scanning networks and identifying security vulnerabilities with detailed reporting and remediation suggestions.",

@@ -6,13 +6,14 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { createClient } from "@/lib/supabase/server"
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const supabase = await createClient()
+  const { slug } = await params;
 
   const { data: project } = await supabase
     .from("projects")
     .select("title, description")
-    .eq("slug", params.slug)
+    .eq("slug", slug)
     .single()
 
   if (!project) {
@@ -29,9 +30,10 @@ export async function generateMetadata({ params }: { params: { slug: string } })
 }
 
 export default async function ProjectPage({ params }: { params: { slug: string } }) {
-  const supabase = createClient()
+  const supabase = await createClient()
+  const { slug } = await params
 
-  const { data: project, error } = await supabase.from("projects").select("*").eq("slug", params.slug).single()
+  const { data: project, error } = await supabase.from("projects").select("*").eq("slug", slug).single()
 
   if (error || !project) {
     notFound()
