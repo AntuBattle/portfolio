@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="flex items-center">
             <Link href="/" className="flex items-center space-x-2">
               <Shield className="h-8 w-8 text-accent" />
-              <span className="text-xl font-bold">CyberPortfolio</span>
+              <span className="text-xl font-bold">Antonio Battaglia</span>
             </Link>
           </div>
 
