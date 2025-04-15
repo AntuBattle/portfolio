@@ -1,18 +1,30 @@
-let userConfig = undefined
+import createMDX from '@next/mdx';
+
+// 1. Set up MDX support
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: {
+    remarkPlugins: [],
+    rehypePlugins: [],
+  },
+});
+
+let userConfig = undefined;
 try {
-  // try to import ESM first
-  userConfig = await import('./v0-user-next.config.mjs')
+  // Try to import ESM user config
+  userConfig = await import('./v0-user-next.config.mjs');
 } catch (e) {
   try {
-    // fallback to CJS import
-    userConfig = await import("./v0-user-next.config");
+    // Fallback to CJS import
+    userConfig = await import('./v0-user-next.config.js');
   } catch (innerError) {
     // ignore error
   }
 }
 
+// 2. Base Next.js config
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const baseConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -27,25 +39,29 @@ const nextConfig = {
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+  // ✅ pageExtensions must NOT go inside experimental!
+  pageExtensions: ['js', 'jsx', 'ts', 'tsx', 'md', 'mdx'],
+};
 
+// 3. Merge user config (if any)
 if (userConfig) {
-  // ESM imports will have a "default" property
-  const config = userConfig.default || userConfig
+  const config = userConfig.default || userConfig;
 
   for (const key in config) {
     if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
+      typeof baseConfig[key] === 'object' &&
+      !Array.isArray(baseConfig[key]) &&
+      baseConfig[key] !== null
     ) {
-      nextConfig[key] = {
-        ...nextConfig[key],
+      baseConfig[key] = {
+        ...baseConfig[key],
         ...config[key],
-      }
+      };
     } else {
-      nextConfig[key] = config[key]
+      baseConfig[key] = config[key];
     }
   }
 }
 
-export default nextConfig
+// 4. Export the final config wrapped with MDX
+export default withMDX(baseConfig);

@@ -1,84 +1,56 @@
 "use client"
 
-import React from "react"
-
-import { useEffect, useState } from "react"
-import DOMPurify from "isomorphic-dompurify"
+import React, { useEffect, useState } from "react"
+import { evaluate } from "@mdx-js/mdx"
+import * as runtime from "react/jsx-runtime"
+import { MDXProvider } from "@mdx-js/react"
+import Image from "next/image"
 import CodeBlock from "./code-block"
 
 interface BlogContentProps {
-  content: string
+  content: string // MDX string
+}
+
+// 👇 All MDX components you want to support
+const components = {
+  img: (props: any) => (
+    <Image
+      src={props.src || ""}
+      alt={props.alt || ""}
+      width={600}
+      height={400}
+      className="rounded-md"
+    />
+  ),
+  Image, // 👈 ✅ Required for <Image /> used directly in MDX
+  code: ({ className, children }: any) => {
+    const language = className?.replace("language-", "") || "plaintext"
+    return <CodeBlock language={language} code={String(children)} />
+  },
 }
 
 export default function BlogContent({ content }: BlogContentProps) {
-  const [processedContent, setProcessedContent] = useState("")
+  const [MDXContent, setMDXContent] = useState<React.ElementType | null>(null)
 
   useEffect(() => {
-    // Process content to extract and replace code blocks
-    const processContent = () => {
-      // Sanitize the HTML content
-      const sanitizedContent = DOMPurify.sanitize(content)
-
-      // Create a temporary DOM element to parse the HTML
-      const tempDiv = document.createElement("div")
-      tempDiv.innerHTML = sanitizedContent
-
-      // Find all pre > code elements
-      const codeBlocks = tempDiv.querySelectorAll("pre > code")
-
-      // Replace each code block with a placeholder that we'll replace with our CodeBlock component
-      codeBlocks.forEach((codeBlock, index) => {
-        const language = codeBlock.className.replace("language-", "") || "javascript"
-        const code = codeBlock.textContent || ""
-
-        // Create a placeholder
-        const placeholder = document.createElement("div")
-        placeholder.setAttribute("data-code-block", "true")
-        placeholder.setAttribute("data-code", encodeURIComponent(code))
-        placeholder.setAttribute("data-language", language)
-        placeholder.setAttribute("data-index", index.toString())
-
-        // Replace the pre element with our placeholder
-        const preElement = codeBlock.parentElement
-        if (preElement && preElement.parentElement) {
-          preElement.parentElement.replaceChild(placeholder, preElement)
-        }
+    const run = async () => {
+      const { default: Comp } = await evaluate(content, {
+        ...runtime,
+        useMDXComponents: () => components, // ✅ Required to bind Image, CodeBlock, etc.
       })
-
-      setProcessedContent(tempDiv.innerHTML)
+      setMDXContent(() => Comp)
     }
 
-    processContent()
+    run()
   }, [content])
 
-  // Render the content with code blocks
-  const renderContent = () => {
-    if (!processedContent) return null
+  if (!MDXContent) return <p>Loading content...</p>
 
-    // Split the content by code block placeholders
-    const parts = processedContent.split(/<div data-code-block="true"[^>]*><\/div>/)
-    const placeholders = processedContent.match(/<div data-code-block="true"[^>]*><\/div>/g) || []
-
-    return (
-      <>
-        {parts.map((part, index) => (
-          <React.Fragment key={index}>
-            <div dangerouslySetInnerHTML={{ __html: part }} />
-            {placeholders[index] &&
-              (() => {
-                // Extract code and language from the placeholder
-                const placeholder = new DOMParser().parseFromString(placeholders[index], "text/html").body
-                  .firstChild as Element
-                const code = decodeURIComponent(placeholder.getAttribute("data-code") || "")
-                const language = placeholder.getAttribute("data-language") || "javascript"
-
-                return <CodeBlock code={code} language={language} />
-              })()}
-          </React.Fragment>
-        ))}
-      </>
-    )
-  }
-
-  return <div className="blog-content">{renderContent()}</div>
+  return (
+    <div className="blog-content prose prose-invert max-w-none">
+      <MDXProvider components={components}>
+        <MDXContent />
+      </MDXProvider>
+    </div>
+  )
 }

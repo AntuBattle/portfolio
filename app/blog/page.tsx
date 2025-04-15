@@ -8,14 +8,15 @@ export const metadata = {
   description: "Read articles about cybersecurity, penetration testing, and secure development.",
 }
 
-export default function BlogPage({
+export default async function BlogPage({
   searchParams,
 }: {
   searchParams: { q?: string; categories?: string; sort?: string }
 }) {
-  const searchQuery = searchParams.q || ""
-  const categories = searchParams.categories ? searchParams.categories.split(",") : undefined
-  const sortOrder = searchParams.sort || "newest"
+  const { q, categories, sort } = await searchParams
+  const searchQuery = q || ""
+  const search_categories = categories ? categories.split(",") : undefined
+  const sortOrder = sort || "newest"
 
   return (
     <div className="container mx-auto px-4 py-12">
@@ -30,7 +31,7 @@ export default function BlogPage({
         </div>
 
         <Suspense fallback={<BlogListSkeleton />}>
-          <BlogList searchQuery={searchQuery} categories={categories} sortOrder={sortOrder} />
+          <BlogList searchQuery={searchQuery} categories={search_categories} sortOrder={sortOrder} />
         </Suspense>
       </div>
     </div>

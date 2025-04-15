@@ -31,6 +31,9 @@ export default function Footer() {
               <Link href="/blog" className="text-sm text-muted-foreground hover:text-accent">
                 Blog
               </Link>
+              <Link href="/resources" className="text-sm text-muted-foreground hover:text-accent">
+                Resources
+              </Link>
               <Link href="/contact" className="text-sm text-muted-foreground hover:text-accent">
                 Contact
               </Link>

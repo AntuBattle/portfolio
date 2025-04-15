@@ -102,7 +102,7 @@ export default function BlogSearch() {
 
   return (
     <div className="space-y-4">
-      <div className="flex flex-col md:flex-row gap-4">
+      <div className="flex flex-col gap-4">
         <form onSubmit={handleSearch} className="relative flex-grow">
           <Input
             type="search"
@@ -123,12 +123,12 @@ export default function BlogSearch() {
           </Button>
         </form>
 
-        <div className="flex gap-2">
+        <div className="flex gap-2 flex-wrap items-center">
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="flex items-center gap-2">
+              <Button variant="outline" className="flex items-center gap-2 h-9">
                 <Clock className="h-4 w-4" />
-                <span className="hidden sm:inline">Sort by:</span>
+                <span className="hidden xs:inline">Sort:</span>
                 {sortOrder === "newest" ? "Newest" : "Oldest"}
               </Button>
             </DropdownMenuTrigger>
@@ -150,11 +150,11 @@ export default function BlogSearch() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Collapsible open={isFilterOpen} onOpenChange={setIsFilterOpen} className="w-full md:w-auto">
+          <Collapsible open={isFilterOpen} onOpenChange={setIsFilterOpen} className="w-full">
             <CollapsibleTrigger asChild>
-              <Button variant="outline" className="flex items-center gap-2 relative">
+              <Button variant="outline" className="flex items-center gap-2 relative h-9">
                 <Filter className="h-4 w-4" />
-                <span className="hidden sm:inline">Filters</span>
+                <span className="hidden xs:inline">Filters</span>
                 {activeFiltersCount > 0 && (
                   <Badge className="ml-1 h-5 w-5 p-0 flex items-center justify-center rounded-full">
                     {activeFiltersCount}
@@ -179,7 +179,7 @@ export default function BlogSearch() {
                     <Badge
                       key={category}
                       variant={selectedCategories.includes(category) ? "default" : "outline"}
-                      className="cursor-pointer hover:bg-accent/20 transition-colors"
+                      className="cursor-pointer hover:bg-accent/20 transition-colors text-xs"
                       onClick={() => toggleCategory(category)}
                     >
                       {category}
@@ -188,7 +188,7 @@ export default function BlogSearch() {
                 </div>
 
                 <div className="flex justify-end mt-4">
-                  <Button size="sm" onClick={handleSearch} disabled={isPending}>
+                  <Button size="sm" onClick={handleSearch} disabled={isPending} className="h-8">
                     {isPending ? (
                       <Loader2 className="h-4 w-4 animate-spin mr-2" />
                     ) : (
