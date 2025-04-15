@@ -8,12 +8,12 @@ import { useMobile } from "@/hooks/use-mobile"
 
 // Define the skills data
 const initialSkillsData = [
-  { skill: "Web Security", value: 85 },
+  { skill: "Web Security", value: 90 },
   { skill: "OSINT", value: 75 },
-  { skill: "Reverse Engineering", value: 70 },
-  { skill: "Cryptography", value: 65 },
+  { skill: "Reverse Engineering", value: 75 },
+  { skill: "Cryptography", value: 70 },
   { skill: "Blockchain Security", value: 60 },
-  { skill: "System Admin/PrivEsc", value: 80 },
+  { skill: "System Admin/PrivEsc", value: 90 },
 ]
 
 export default function ProficiencyChart() {

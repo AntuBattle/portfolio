@@ -48,47 +48,7 @@ export default function FeaturedProjects() {
     fetchProjects()
   }, [])
 
-  // Placeholder projects for initial render
-  const placeholderProjects = [
-    {
-      id: "1",
-      title: "Network Vulnerability Scanner",
-      slug: "network-vulnerability-scanner",
-      description:
-        "An automated tool for scanning networks and identifying security vulnerabilities with detailed reporting and remediation suggestions.",
-      image_url: "/placeholder.svg?height=300&width=500",
-      github_url: "https://github.com/username/network-scanner",
-      demo_url: "https://demo-scanner.example.com",
-      technologies: ["Python", "Nmap", "Docker", "Flask"],
-      featured: true,
-    },
-    {
-      id: "2",
-      title: "Secure Authentication System",
-      slug: "secure-authentication-system",
-      description:
-        "A robust authentication system implementing multi-factor authentication, JWT, and advanced encryption techniques.",
-      image_url: "/placeholder.svg?height=300&width=500",
-      github_url: "https://github.com/username/secure-auth",
-      demo_url: null,
-      technologies: ["Node.js", "Express", "JWT", "Biometrics"],
-      featured: true,
-    },
-    {
-      id: "3",
-      title: "Threat Intelligence Dashboard",
-      slug: "threat-intelligence-dashboard",
-      description:
-        "Real-time dashboard for monitoring and analyzing cybersecurity threats and vulnerabilities across systems.",
-      image_url: "/placeholder.svg?height=300&width=500",
-      github_url: "https://github.com/username/threat-dashboard",
-      demo_url: "https://threat-intel.example.com",
-      technologies: ["React", "D3.js", "GraphQL", "ElasticSearch"],
-      featured: true,
-    },
-  ]
-
-  const displayProjects = loading || projects.length === 0 ? placeholderProjects : projects
+  const displayProjects = loading || projects.length === 0 ? [] : projects
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

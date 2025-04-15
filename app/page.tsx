@@ -1,8 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
-import { Shield, Lock, Server, Code, ExternalLink, ChevronRight, Github, Linkedin, Mail } from "lucide-react"
+import { Shield, Lock, Server, Code, ExternalLink, ChevronRight, Github, Linkedin, Mail, Sword } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import FeaturedProjects from "@/components/featured-projects"
 import ProficiencyChart from "@/components/proficiency-chart"
 
@@ -11,7 +11,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 matrix-bg opacity-30"></div>
+        <div className="absolute inset-0 matrix-bg opacity-90"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -19,10 +19,10 @@ export default function Home() {
                 Cybersecurity Engineer
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Securing the <span className="text-accent glow-text">Digital Frontier</span>
+                Find the flaws.<br></br> <span className="text-accent glow-text">Fortify the future.</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                I'm a cybersecurity professional specializing in vulnerability assessment, penetration testing, and
+                Hi! My name is Antonio Battaglia. I'm a cybersecurity professional specializing in vulnerability assessment, penetration testing, and
                 secure system architecture.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -38,7 +38,7 @@ export default function Home() {
               <div className="relative w-64 h-64 md:w-80 md:h-80 cyber-border rounded-full overflow-hidden mb-6">
                 <Image
                   src="/images/battaglia_antonio_foto.jpg"
-                  alt="Cybersecurity Professional"
+                  alt="Profile Photo"
                   width={400}
                   height={400}
                   className="object-cover"
@@ -49,7 +49,7 @@ export default function Home() {
               {/* Social Media Icons */}
               <div className="flex space-x-4 mt-2">
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/AntuBattle"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
@@ -58,7 +58,7 @@ export default function Home() {
                   <Github className="h-6 w-6 text-accent" />
                 </Link>
                 <Link
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/antonio-battaglia-24a20022b/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
@@ -91,16 +91,25 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <p className="text-lg">
-                With over 5 years of experience in cybersecurity, I've helped organizations identify vulnerabilities,
-                implement robust security measures, and respond to incidents effectively.
+              I'm a master's degree student in Computer Engineering with a strong passion for cybersecurity, with a focus on penetration testing, and embedded systems. 
+              I'm currently preparing for the LPIC and OSCP certifications, 
+              while actively participating in Capture The Flag (CTF) competitions as both a hobby and a continuous learning strategy.
               </p>
               <p>
-                My expertise spans across network security, application security, and cloud security. I'm passionate
-                about staying ahead of emerging threats and continuously enhancing my skills to protect digital assets.
+              I was honored to represent my university in the CyberChallenge.IT national finals, 
+              where I collaborated with top national talent to solve real-world cyber defense problems. 
+              Outside of competitions, I sharpen my skills on platforms like HackTheBox, 
+              focusing on realistic infrastructure and red team simulations.
               </p>
               <p>
-                When I'm not securing systems, I enjoy contributing to open-source security tools and sharing knowledge
-                through my blog and community engagements.
+              In parallel, I’m part of a Formula SAE team, where I developed the firmware for our race car’s dashboard — 
+              an experience that pushed my skills in embedded systems, real-time data handling, 
+              and performance-critical C/C++ development.
+              </p>
+              <p>
+              Currently, I'm part of a nationally funded research project, 
+              where I’m designing and implementing an Intrusion Detection System (IDS) for industrial control systems (ICS).
+              This project bridges my passion for cyber-physical systems with real-world impact on infrastructure security.
               </p>
               <div className="pt-4">
                 <Button asChild variant="outline" className="gap-2">
@@ -113,47 +122,56 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <Card className="cyber-card">
+              <Card className="bg-card shadow-[0_0_20px_#60a5fa55] border border-blue-500/60">
                 <CardHeader className="pb-2">
-                  <Shield className="h-8 w-8 text-accent mb-2" />
+                  <Shield className="h-8 w-8 text-blue-400 mb-2" />
                   <CardTitle>Security Audits</CardTitle>
+                  <CardDescription>Evaluate. Detect. Harden.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Comprehensive security assessments to identify vulnerabilities
+                    Comprehensive security assessments to identify vulnerabilities across applications.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="cyber-card">
+              <Card className="bg-card shadow-[0_0_20px_#f8717177] border border-red-500/60">
                 <CardHeader className="pb-2">
-                  <Lock className="h-8 w-8 text-accent mb-2" />
+                  <Sword className="h-8 w-8 text-red-500 mb-2" />
                   <CardTitle>Penetration Testing</CardTitle>
+                  <CardDescription>Break in. Report. Secure.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">Simulated attacks to test security defenses</p>
+                  <p className="text-sm text-muted-foreground">I simulate real-world attacks on applications to uncover vulnerabilities before adversaries do.</p>
                 </CardContent>
               </Card>
 
-              <Card className="cyber-card">
+              <Card className="bg-card shadow-[0_0_20px_#d4d4d877] border border-zinc-200/60">
                 <CardHeader className="pb-2">
-                  <Server className="h-8 w-8 text-accent mb-2" />
-                  <CardTitle>Secure Architecture</CardTitle>
+                  <Server className="h-8 w-8 text-zinc-300 mb-2" />
+                  <CardTitle>Infrastructure Hardening</CardTitle>
+                  <CardDescription>Architect. Isolate. Fortify.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">Designing robust security infrastructure</p>
+                  <p className="text-sm text-muted-foreground">
+                    Designing resilient system architectures with layered security controls and best practices — from networks to embedded systems.
+                  </p>
                 </CardContent>
               </Card>
 
-              <Card className="cyber-card">
+              <Card className="bg-card shadow-[0_0_20px_#c084fc55] border border-purple-500/60">
                 <CardHeader className="pb-2">
-                  <Code className="h-8 w-8 text-accent mb-2" />
+                  <Code className="h-8 w-8 text-purple-400 mb-2" />
                   <CardTitle>Secure Coding</CardTitle>
+                  <CardDescription>Write. Review. Mitigate.</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-sm text-muted-foreground">Implementing security best practices in development</p>
+                  <p className="text-sm text-muted-foreground">
+                    Applying security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
+                  </p>
                 </CardContent>
               </Card>
+
             </div>
           </div>
         </div>

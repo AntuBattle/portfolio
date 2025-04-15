@@ -9,8 +9,17 @@ import Footer from "@/components/footer"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "Portfolio Antonio Battaglia",
-  description: "Portfolio showcasing my work as a cybersecurity engineer",
+  title: "Cybersecurity Portfolio Antonio Battaglia",
+  description: "Portfolio showcasing my work and expertise as a cybersecurity engineer",
+  openGraph: {
+    title: 'Cybersecurity Portfolio Antonio Battaglia',
+    description: 'Portfolio showcasing my work and expertise as a cybersecurity engineer',
+    url: 'https://antubattle.dev',
+    siteName: 'Antonio Battaglia Portfolio',
+    images: [{ url: 'https://antubattle.dev/images/battaglia_antonio_foto.jpg' }]
+  },
+  authors: [{ name: "Antonio Battaglia"}],
+  keywords: "portfolio, curriculum, blog, penetration testing, cybersecurity, cybersec, pentest, engineer",
 }
 
 export const viewport: Viewport = {

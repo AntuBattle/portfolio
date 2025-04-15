@@ -84,7 +84,7 @@
 }
 
 .cyber-card {
-  @apply bg-card border border-accent/30 shadow-[0_0_15px_rgba(0,255,0,0.2)];
+  @apply bg-card border border-accent/40 shadow-[0_0_15px_rgba(0,255,0,0.2)];
 }
 
 .typing-animation {
