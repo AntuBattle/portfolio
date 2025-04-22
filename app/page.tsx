@@ -1,17 +1,33 @@
 import Image from "next/image"
 import Link from "next/link"
+import Hero from "@/components/hero"
+import Skills from "@/components/skills"
 import { Shield, Lock, Server, Code, ExternalLink, ChevronRight, Github, Linkedin, Mail, Sword } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import FeaturedProjects from "@/components/featured-projects"
 import ProficiencyChart from "@/components/proficiency-chart"
+import { TypewriterEffect } from "@/components/ui/typewriter-effect"
+import Icon from "simple-icons"
+import  {siHackthebox} from "simple-icons/icons"
+
+// Helper function to render SVG icon from simple-icons
+function SimpleIcon({ icon, className = "" }: { icon: { path: string; title: string }; className?: string }) {
+  return (
+    <svg role="img" viewBox="0 0 24 24" className={className} fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+      <title>{icon.title}</title>
+      <path d={icon.path} />
+    </svg>
+  )
+}
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Hero Section */}
+      <Hero/>
+      {/* Hero Section with PfP*/}
       <section className="relative py-20 md:py-32 overflow-hidden">
-        <div className="absolute inset-0 matrix-bg opacity-90"></div>
+        <div className="absolute inset-0 matrix-bg opacity-20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
@@ -19,10 +35,15 @@ export default function Home() {
                 Cybersecurity Engineer
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-                Find the flaws.<br></br> <span className="text-accent glow-text">Fortify the future.</span>
+                Find the flaws.<br></br> <span className="text-accent">Fortify the future.</span>
               </h1>
+              <div className="mt-2 text-center md:text-left">
+              <TypewriterEffect
+                words={["Penetration Testing", "System Administration", "Network Security", "Vulnerability Assessment"]}
+              />
+              </div>
               <p className="text-lg text-muted-foreground">
-                Hi! My name is Antonio Battaglia. I'm a cybersecurity professional specializing in vulnerability assessment, penetration testing, and
+                My name is Antonio Battaglia. I'm a cybersecurity professional specializing in vulnerability assessment, penetration testing, and
                 secure system architecture.
               </p>
               <div className="flex flex-wrap gap-4">
@@ -73,6 +94,14 @@ export default function Home() {
                 >
                   <Mail className="h-6 w-6 text-accent" />
                 </Link>
+                <Link
+                  href="https://app.hackthebox.com/profile/1872566"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
+                >
+                  <SimpleIcon icon={siHackthebox} className="h-6 w-6 text-accent" />
+                </Link>
               </div>
             </div>
           </div>
@@ -111,7 +140,14 @@ export default function Home() {
               where I’m designing and implementing an Intrusion Detection System (IDS) for industrial control systems (ICS).
               This project bridges my passion for cyber-physical systems with real-world impact on infrastructure security.
               </p>
-              <div className="pt-4">
+              
+              <div className="pt-4 flex flex-wrap gap-4">
+                <Button asChild variant="outline" className="gap-2">
+                  <Link href="/about">
+                    About Me
+                    <ChevronRight className="h-4 w-4" />
+                  </Link>
+                </Button>
                 <Button asChild variant="outline" className="gap-2">
                   <Link href="/blog">
                     Read My Blog
@@ -122,11 +158,11 @@ export default function Home() {
             </div>
 
             <div className="grid grid-cols-2 gap-6">
-              <Card className="bg-card shadow-[0_0_20px_#60a5fa55] border border-blue-500/60">
+              <Card className="bg-card border border-blue-500/60">
                 <CardHeader className="pb-2">
                   <Shield className="h-8 w-8 text-blue-400 mb-2" />
                   <CardTitle>Security Audits</CardTitle>
-                  <CardDescription>Evaluate. Detect. Harden.</CardDescription>
+                  <CardDescription className="text-foreground/80" style={{ textShadow: "0 0 2px #60a5fa" }}>Evaluate. Detect. Harden.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
@@ -135,39 +171,39 @@ export default function Home() {
                 </CardContent>
               </Card>
 
-              <Card className="bg-card shadow-[0_0_20px_#f8717177] border border-red-500/60">
+              <Card className="bg-card border border-red-500/60">
                 <CardHeader className="pb-2">
                   <Sword className="h-8 w-8 text-red-500 mb-2" />
                   <CardTitle>Penetration Testing</CardTitle>
-                  <CardDescription>Break in. Report. Secure.</CardDescription>
+                  <CardDescription className="text-foreground/80" style={{ textShadow: "0 0 2px #FA3B3F" }}>Break in. Report. Secure.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">I simulate real-world attacks on applications to uncover vulnerabilities before adversaries do.</p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card shadow-[0_0_20px_#d4d4d877] border border-zinc-200/60">
+              <Card className="bg-card border border-zinc-200/60">
                 <CardHeader className="pb-2">
                   <Server className="h-8 w-8 text-zinc-300 mb-2" />
                   <CardTitle>Infrastructure Hardening</CardTitle>
-                  <CardDescription>Architect. Isolate. Fortify.</CardDescription>
+                  <CardDescription className="text-foreground/80" style={{ textShadow: "0 0 2px #D3D3D7" }}>Architect. Isolate. Fortify.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Designing resilient system architectures with layered security controls and best practices — from networks to embedded systems.
+                    Design of resilient system architectures with layered security controls and best practices — from networks to embedded systems.
                   </p>
                 </CardContent>
               </Card>
 
-              <Card className="bg-card shadow-[0_0_20px_#c084fc55] border border-purple-500/60">
+              <Card className="bg-card border border-purple-500/60">
                 <CardHeader className="pb-2">
                   <Code className="h-8 w-8 text-purple-400 mb-2" />
                   <CardTitle>Secure Coding</CardTitle>
-                  <CardDescription>Write. Review. Mitigate.</CardDescription>
+                  <CardDescription className="text-foreground/80" style={{ textShadow: "0 0 2px #FA75F4" }}>Write. Review. Mitigate.</CardDescription>
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Applying security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
+                    Applycation of security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
                   </p>
                 </CardContent>
               </Card>
@@ -199,67 +235,58 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Skills Proficiency Section */}
-      <section className="py-20 bg-muted/30">
+      <Skills/>
+
+
+            {/* Resources Section */}
+            <section id="resources" className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Skills & Expertise</h2>
+            <h2 className="text-3xl font-bold mb-4">Security Resources</h2>
             <div className="h-1 w-20 bg-accent mx-auto mb-6"></div>
-            <p className="text-muted-foreground">My proficiency across various cybersecurity domains</p>
+            <p className="text-muted-foreground">
+              Curated cybersecurity tools, books, and training platforms I recommend
+            </p>
           </div>
 
-          <div className="max-w-3xl mx-auto">
-            <ProficiencyChart />
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div className="cyber-card p-6 text-center">
+              <svg className="h-12 w-12 mx-auto mb-4 text-accent" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z" />
+                <path d="M11 11h2v6h-2zm0-4h2v2h-2z" />
+              </svg>
+              <h3 className="text-xl font-semibold mb-2">Training Platforms</h3>
+              <p className="text-muted-foreground mb-4">
+                Interactive platforms to practice and improve your cybersecurity skills
+              </p>
+            </div>
+
+            <div className="cyber-card p-6 text-center">
+              <svg className="h-12 w-12 mx-auto mb-4 text-accent" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M6.012 18H21V4a2 2 0 0 0-2-2H6c-1.206 0-3 .799-3 3v14c0 2.201 1.794 3 3 3h15v-2H6.012C5.55 19.988 5 19.805 5 19s.55-.988 1.012-1zM8 6h9v2H8V6z" />
+              </svg>
+              <h3 className="text-xl font-semibold mb-2">Books & References</h3>
+              <p className="text-muted-foreground mb-4">
+                Essential reading materials for cybersecurity professionals at all levels
+              </p>
+            </div>
+
+            <div className="cyber-card p-6 text-center">
+              <svg className="h-12 w-12 mx-auto mb-4 text-accent" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14c-3.859 0-7-3.141-7-7s3.141-7 7-7 7 3.141 7 7-3.141 7-7 7z" />
+                <path d="M12 8c-1.105 0-2 .895-2 2s.895 2 2 2 2-.895 2-2-.895-2-2-2z" />
+              </svg>
+              <h3 className="text-xl font-semibold mb-2">Tools & Utilities</h3>
+              <p className="text-muted-foreground mb-4">
+                Powerful tools that every security professional should have in their arsenal
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">Web Security</h3>
-              <p className="text-sm text-muted-foreground">
-                Expert in identifying and mitigating web vulnerabilities including XSS, CSRF, SQL injection, and
-                securing web applications.
-              </p>
-            </div>
-
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">OSINT</h3>
-              <p className="text-sm text-muted-foreground">
-                Skilled in open-source intelligence gathering, digital footprint analysis, and reconnaissance
-                techniques.
-              </p>
-            </div>
-
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">Reverse Engineering</h3>
-              <p className="text-sm text-muted-foreground">
-                Experience in analyzing malware, binary exploitation, and understanding software vulnerabilities through
-                code analysis.
-              </p>
-            </div>
-
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">Cryptography</h3>
-              <p className="text-sm text-muted-foreground">
-                Knowledge of encryption algorithms, cryptographic protocols, and implementing secure communication
-                channels.
-              </p>
-            </div>
-
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">Blockchain Security</h3>
-              <p className="text-sm text-muted-foreground">
-                Understanding of smart contract vulnerabilities, blockchain architecture security, and decentralized
-                application security.
-              </p>
-            </div>
-
-            <div className="cyber-card p-6">
-              <h3 className="text-lg font-semibold mb-2 text-accent">System Admin/PrivEsc</h3>
-              <p className="text-sm text-muted-foreground">
-                Proficient in system hardening, privilege escalation techniques, and securing infrastructure against
-                unauthorized access.
-              </p>
-            </div>
+          <div className="text-center">
+            <Button asChild size="lg" className="rounded-md">
+              <Link href="/resources">Browse All Resources</Link>
+            </Button>
           </div>
         </div>
       </section>

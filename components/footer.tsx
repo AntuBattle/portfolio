@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Shield className="h-6 w-6 text-accent" />
-              <span className="text-lg font-bold">CyberPortfolio</span>
+              <span className="text-lg font-bold">Antonio Battaglia</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Cybersecurity engineer specializing in protecting digital assets and infrastructure.
@@ -44,7 +44,7 @@ export default function Footer() {
             <h3 className="text-sm font-semibold">Connect</h3>
             <div className="flex space-x-4">
               <Link
-                href="https://github.com"
+                href="https://github.com/AntuBattle"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent"
@@ -53,7 +53,7 @@ export default function Footer() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/antonio-battaglia-24a20022b/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-muted-foreground hover:text-accent"
@@ -61,7 +61,7 @@ export default function Footer() {
                 <Linkedin className="h-5 w-5" />
                 <span className="sr-only">LinkedIn</span>
               </Link>
-              <Link href="mailto:your.email@example.com" className="text-muted-foreground hover:text-accent">
+              <Link href="mailto:antoniobattaglia01@gmail.com" className="text-muted-foreground hover:text-accent">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </Link>
@@ -71,7 +71,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t pt-6">
           <p className="text-center text-xs text-muted-foreground">
-            © {new Date().getFullYear()} CyberPortfolio. All rights reserved.
+            © {new Date().getFullYear()} Antonio Battaglia.
           </p>
         </div>
       </div>
