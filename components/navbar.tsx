@@ -10,20 +10,23 @@ import { ModeToggle } from "@/components/mode-toggle"
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [navbarVisible, setNavbarVisible] = useState(false)
   const pathname = usePathname()
 
   useEffect(() => {
+    if (pathname !== "/") {
+      setNavbarVisible(true)
+      return
+    }
+
     const handleScroll = () => {
-      if (window.scrollY > 10) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
+      setNavbarVisible(window.scrollY > window.innerHeight)
+      setScrolled(window.scrollY > 10)
     }
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+  }, [pathname])
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -34,33 +37,52 @@ export default function Navbar() {
     { href: "/contact", label: "Contact" },
   ]
 
-  const isActive = (path: string) => {
-    return pathname === path
-  }
+  const isActive = (path: string) => pathname === path
+
+  // Base classes for visible vs not-visible
+  const headerClasses = navbarVisible
+    ? `opacity-100 pointer-events-auto transition-all duration-200 ${
+        scrolled
+          ? "bg-background/80 backdrop-blur-md shadow-md"
+          : "bg-transparent"
+      }`
+    : "opacity-100 bg-black text-black pointer-events-none transition-all duration-200"
+
+  // A helper to pick link colors
+  const linkColorClass = navbarVisible ? "text-foreground/80 hover:text-accent" : "text-black"
 
   return (
-    <header
-      className={`sticky top-0 z-50 w-full transition-all duration-200 ${
-        scrolled ? "bg-background/80 backdrop-blur-md shadow-md" : "bg-transparent"
-      }`}
-    >
+    <header className={`sticky top-0 z-50 w-full ${headerClasses}`}>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
-              <Shield className="h-8 w-8 text-accent" />
-              <span className="text-xl font-bold">Antonio Battaglia</span>
-            </Link>
-          </div>
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <Shield
+              className={`h-8 w-8 ${
+                navbarVisible ? "text-accent" : "text-black"
+              }`}
+            />
+            <span
+              className={`text-xl font-bold ${
+                navbarVisible ? "text-foreground" : "text-black"
+              }`}
+            >
+              Antonio Battaglia
+            </span>
+          </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center space-x-6">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-accent ${
-                  isActive(link.href) ? "text-accent" : "text-foreground/80"
+                className={`text-sm font-medium transition-colors ${
+                  isActive(link.href)
+                    ? navbarVisible
+                      ? "text-accent"
+                      : "text-black"
+                    : linkColorClass
                 }`}
               >
                 {link.label}
@@ -69,17 +91,34 @@ export default function Navbar() {
             <ModeToggle />
           </nav>
 
-          {/* Mobile Navigation Toggle */}
+          {/* Mobile Toggle */}
           <div className="flex md:hidden items-center space-x-2">
             <ModeToggle />
-            <Button variant="ghost" size="icon" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle Menu">
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle Menu"
+            >
+              {isOpen ? (
+                <X
+                  className={`h-6 w-6 ${
+                    navbarVisible ? "text-foreground" : "text-black"
+                  }`}
+                />
+              ) : (
+                <Menu
+                  className={`h-6 w-6 ${
+                    navbarVisible ? "text-foreground" : "text-black"
+                  }`}
+                />
+              )}
             </Button>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile Menu */}
       {isOpen && (
         <div className="md:hidden bg-background/95 backdrop-blur-md border-b">
           <div className="container mx-auto px-4 py-4">
@@ -88,10 +127,14 @@ export default function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors hover:text-accent ${
-                    isActive(link.href) ? "text-accent" : "text-foreground/80"
-                  }`}
                   onClick={() => setIsOpen(false)}
+                  className={`text-sm font-medium transition-colors ${
+                    isActive(link.href)
+                      ? navbarVisible
+                        ? "text-accent"
+                        : "text-black"
+                      : linkColorClass
+                  }`}
                 >
                   {link.label}
                 </Link>

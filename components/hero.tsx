@@ -13,7 +13,7 @@ export default function Hero() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const maxScroll = 350;
+      const maxScroll = window.innerHeight / 2;
       const scrollTop = window.scrollY;
       const newOpacity = Math.max(0, 1 - scrollTop / maxScroll);
       setOpacity(newOpacity);
