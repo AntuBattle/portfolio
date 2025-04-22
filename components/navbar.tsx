@@ -15,7 +15,10 @@ export default function Navbar() {
   const isHome = pathname === "/"
 
   useEffect(() => {
-    if (pathname !== "/") {
+
+    const [entry] = window.performance.getEntriesByType("navigation") as PerformanceNavigationTiming[]
+    
+    if (pathname !== "/" || entry.type === "reload") {
       setNavbarVisible(true)
       setScrolled(true)
       return
