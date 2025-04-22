@@ -12,10 +12,12 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [navbarVisible, setNavbarVisible] = useState(false)
   const pathname = usePathname()
+  const isHome = pathname === "/"
 
   useEffect(() => {
     if (pathname !== "/") {
       setNavbarVisible(true)
+      setScrolled(true)
       return
     }
 
@@ -26,7 +28,7 @@ export default function Navbar() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [pathname])
+  }, [isHome])
 
   const navLinks = [
     { href: "/", label: "Home" },

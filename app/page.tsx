@@ -1,5 +1,8 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
+import { motion } from "framer-motion"
 import Hero from "@/components/hero"
 import Skills from "@/components/skills"
 import { Shield, Lock, Server, Code, ExternalLink, ChevronRight, Github, Linkedin, Mail, Sword } from "lucide-react"
@@ -116,31 +119,65 @@ export default function Home() {
             <div className="h-1 w-20 bg-accent mx-auto mb-6"></div>
             <p className="text-muted-foreground">Discover my journey in the cybersecurity landscape</p>
           </div>
-
+        
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            >
               <p className="text-lg">
               I'm a master's degree student in Computer Engineering with a strong passion for cybersecurity, with a focus on penetration testing, and embedded systems. 
               I'm currently preparing for the LPIC and OSCP certifications, 
               while actively participating in Capture The Flag (CTF) competitions as both a hobby and a continuous learning strategy.
               </p>
+            </motion.div>
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            >
               <p>
               I was honored to represent my university in the CyberChallenge.IT national finals, 
               where I collaborated with top national talent to solve real-world cyber defense problems. 
               Outside of competitions, I sharpen my skills on platforms like HackTheBox, 
               focusing on realistic infrastructure and red team simulations.
               </p>
+              </motion.div>
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            >
               <p>
               In parallel, I’m part of a Formula SAE team, where I developed the firmware for our race car’s dashboard — 
               an experience that pushed my skills in embedded systems, real-time data handling, 
               and performance-critical C/C++ development.
               </p>
+              </motion.div>
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            >
               <p>
               Currently, I'm part of a nationally funded research project, 
               where I’m designing and implementing an Intrusion Detection System (IDS) for industrial control systems (ICS).
               This project bridges my passion for cyber-physical systems with real-world impact on infrastructure security.
               </p>
-              
+              </motion.div>
+
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            >
               <div className="pt-4 flex flex-wrap gap-4">
                 <Button asChild variant="outline" className="gap-2">
                   <Link href="/about">
@@ -155,10 +192,18 @@ export default function Home() {
                   </Link>
                 </Button>
               </div>
+              </motion.div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <Card className="bg-card border border-blue-500/60">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+            >
+              <Card className="bg-card border border-foreground/60 h-full">
                 <CardHeader className="pb-2">
                   <Shield className="h-8 w-8 text-blue-400 mb-2" />
                   <CardTitle>Security Audits</CardTitle>
@@ -170,8 +215,16 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
+              </motion.div>
 
-              <Card className="bg-card border border-red-500/60">
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+            >
+              <Card className="bg-card border border-foreground/60 h-full">
                 <CardHeader className="pb-2">
                   <Sword className="h-8 w-8 text-red-500 mb-2" />
                   <CardTitle>Penetration Testing</CardTitle>
@@ -181,8 +234,16 @@ export default function Home() {
                   <p className="text-sm text-muted-foreground">I simulate real-world attacks on applications to uncover vulnerabilities before adversaries do.</p>
                 </CardContent>
               </Card>
+              </motion.div>
 
-              <Card className="bg-card border border-zinc-200/60">
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+            >
+              <Card className="bg-card border border-foreground/60 h-full">
                 <CardHeader className="pb-2">
                   <Server className="h-8 w-8 text-zinc-300 mb-2" />
                   <CardTitle>Infrastructure Hardening</CardTitle>
@@ -194,8 +255,16 @@ export default function Home() {
                   </p>
                 </CardContent>
               </Card>
+              </motion.div>
 
-              <Card className="bg-card border border-purple-500/60">
+              <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+            >
+              <Card className="bg-card border border-foreground/60 h-full">
                 <CardHeader className="pb-2">
                   <Code className="h-8 w-8 text-purple-400 mb-2" />
                   <CardTitle>Secure Coding</CardTitle>
@@ -203,11 +272,11 @@ export default function Home() {
                 </CardHeader>
                 <CardContent>
                   <p className="text-sm text-muted-foreground">
-                    Applycation of security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
+                    Application of security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
                   </p>
                 </CardContent>
               </Card>
-
+            </motion.div>
             </div>
           </div>
         </div>
@@ -249,6 +318,13 @@ export default function Home() {
             </p>
           </div>
 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="h-full w-full"
+            >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
             <div className="cyber-card p-6 text-center">
               <svg className="h-12 w-12 mx-auto mb-4 text-accent" viewBox="0 0 24 24" fill="currentColor">
@@ -282,6 +358,7 @@ export default function Home() {
               </p>
             </div>
           </div>
+          </motion.div>
 
           <div className="text-center">
             <Button asChild size="lg" className="rounded-md">
