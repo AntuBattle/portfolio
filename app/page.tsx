@@ -49,7 +49,7 @@ export default function Home() {
                 My name is Antonio Battaglia. I'm a cybersecurity professional specializing in vulnerability assessment, penetration testing, and
                 secure system architecture.
               </p>
-              <div className="flex flex-wrap gap-4">
+              <div className="flex flex-wrap gap-4 items-center">
                 <Button asChild size="lg" className="rounded-md">
                   <Link href="/projects">View My Work</Link>
                 </Button>
