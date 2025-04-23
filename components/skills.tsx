@@ -6,11 +6,11 @@ import { Shield, Server, Terminal, Lock, Code, Cloud, Network, Database } from "
 
 export default function Skills() {
   const skills = [
-    { name: "Penetration Testing", icon: Lock, value: 95 },
-    { name: "Network Security", icon: Network, value: 90 },
-    { name: "System Administration", icon: Server, value: 85 },
+    { name: "Penetration Testing", icon: Lock, value: 90 },
+    { name: "Network Security", icon: Network, value: 85 },
+    { name: "System Administration", icon: Server, value: 90 },
     { name: "Cloud Security", icon: Cloud, value: 80 },
-    { name: "Vulnerability Assessment", icon: Shield, value: 95 },
+    { name: "Vulnerability Assessment", icon: Shield, value: 90 },
     { name: "Security Automation", icon: Code, value: 75 },
     { name: "Incident Response", icon: Terminal, value: 85 },
     { name: "Database Security", icon: Database, value: 80 },
@@ -23,14 +23,15 @@ export default function Skills() {
     "Burp Suite",
     "Nmap",
     "OWASP ZAP",
-    "Nessus",
-    "Snort",
-    "Splunk",
+    "Ghidra",
+    "IDA Pro",
+    "Python",
+    "Javascript",
+    "Bash",
     "Docker",
     "Kubernetes",
     "AWS",
     "Azure",
-    "GCP",
   ]
 
   return (

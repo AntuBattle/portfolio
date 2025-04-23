@@ -9,7 +9,9 @@ export default function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Shield className="h-6 w-6 text-accent" />
+              <Link href="/">
               <span className="text-lg font-bold">Antonio Battaglia</span>
+              </Link>
             </div>
             <p className="text-sm text-muted-foreground">
               Cybersecurity engineer specializing in protecting digital assets and infrastructure.

@@ -46,18 +46,18 @@ export default function Hero() {
           <br />
           It&apos;s a <span className="text-emerald-500">mindset</span><span className="text-4xl">.</span>
         </h1>
-        <h2 className="text-4xl md:text-6xl font-medium text-white/80 mb-8 h-8 mt-16 flex justify-center items-center transition-opacity duration-200" style={{opacity}}>
+        <h2 className="text-4xl md:text-6xl font-medium text-white/90 mb-8 h-8 mt-16 flex justify-center items-center transition-opacity duration-200" style={{opacity}}>
           <Lock className="h-12 w-12"/>
         </h2>
       </motion.div>
 
       <div className="absolute bottom-10 left-0 right-0 flex justify-center">
         <motion.div
-          initial={{ opacity: 0}}
-          animate={{ opacity: 1, y: [0, -80, 0] }}
+          initial={{ opacity: 0.8, y: -130}}
+          animate={{ opacity: 1, y: -120 }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
         >
-          <Link href="#about">
+          <Link href="#PfP">
             <Button variant="ghost" size="icon" className="rounded-full border border-white/10">
               <ArrowRight className="h-4 w-4 rotate-90" />
             </Button>

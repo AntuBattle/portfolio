@@ -29,7 +29,7 @@ export default function Home() {
     <div className="flex flex-col min-h-screen">
       <Hero/>
       {/* Hero Section with PfP*/}
-      <section className="relative py-20 md:py-32 overflow-hidden">
+      <section className="relative py-20 md:py-32 overflow-hidden" id="PfP">
         <div className="absolute inset-0 matrix-bg opacity-20"></div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -195,7 +195,7 @@ export default function Home() {
               </motion.div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-1 gap-6">
             <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -256,27 +256,6 @@ export default function Home() {
                 </CardContent>
               </Card>
               </motion.div>
-
-              <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="h-full w-full"
-            >
-              <Card className="bg-card border border-foreground/60 h-full">
-                <CardHeader className="pb-2">
-                  <Code className="h-8 w-8 text-purple-400 mb-2" />
-                  <CardTitle>Secure Coding</CardTitle>
-                  <CardDescription className="text-foreground/80" style={{ textShadow: "0 0 2px #FA75F4" }}>Write. Review. Mitigate.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-sm text-muted-foreground">
-                    Application of security-first principles to software development. From input validation to memory safety and logic flaw detection with resilience in mind.
-                  </p>
-                </CardContent>
-              </Card>
-            </motion.div>
             </div>
           </div>
         </div>
