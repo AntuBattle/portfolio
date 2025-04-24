@@ -8,6 +8,10 @@ import { siHackthebox, siPython, siJavascript,
   siCplusplus, siGnubash, siPostgresql, siDocker, siKubernetes, 
   siWasmcloud, siLinux, siGit, 
   siAwslambda} from "simple-icons"
+import Conferences from "@/components/conferences"
+import Publications from "@/components/publications"
+import Experience from "@/components/experience"
+import Languages from "@/components/languages";
 
 export const metadata = {
   title: "About Me | Cybersecurity Engineer Portfolio",
@@ -16,7 +20,7 @@ export const metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="mx-auto px-4 py-12 bg-muted/30">
       <div className="max-w-4xl mx-auto">
         <div className="space-y-2 text-center mb-12">
           <h1 className="text-4xl font-bold">About Me</h1>
@@ -109,32 +113,7 @@ export default function AboutPage() {
 
             <div>
               <h2 className="text-2xl font-bold mb-4">Professional Experience</h2>
-              <div className="space-y-6">
-                <div className="cyber-card p-6">
-                  <h3 className="text-xl font-semibold mb-1">IDS Development for Industrial Systems</h3>
-                  <p className="text-muted-foreground mb-4">Università degli Studi di Messina | 12/2024 - Present</p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>
-                    Developed together with a team at university an Intrusion Detection System that analyzes hardware fingerprints of devices, with a current accuracy of 98%, available on GitHub
-                    </li>
-                    <li>Currently developing machine learning models for assessing and fixing ModBus/TCP and CanBus Protocol vulnerabilities</li>
-                    <li>Developed a ModBus/TCP comprehensive dataset for signal analysis available on GitHub</li>
-                  </ul>
-                </div>
-
-                <div className="cyber-card p-6">
-                  <h3 className="text-xl font-semibold mb-1">Dashboard designer and developer Zancle E-Drive</h3>
-                  <p className="text-muted-foreground mb-4">Università degli Studi di Messina | 05/2024 - 09/2024</p>
-                  <ul className="list-disc pl-5 space-y-2">
-                    <li>Designed the UI and the firmware for the STM32 dashboard that is now utilized in
-the university's official Formula SAE team’s car
-</li>
-                    <li>Performed malware analysis and reverse engineering</li>
-                    <li>Assisted in incident response and forensic investigations</li>
-                    <li>Contributed to the development of security automation scripts</li>
-                  </ul>
-                </div>
-              </div>
+              <Experience/>
             </div>
 
             <div>
@@ -296,187 +275,14 @@ the university's official Formula SAE team’s car
             <div>
               <h2 className="text-2xl font-bold mb-4">Speaking & Publications</h2>
               <div className="grid grid-cols-1 gap-6">
-                <Card className="cyber-card">
-                  <CardHeader className="pb-2">
-                    <Mic className="h-6 w-6 text-accent mb-2" />
-                    <CardTitle>Conference Speaking</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-4">
-                      <li>
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                          <div>
-                            <h4 className="font-medium">DEF CON 31</h4>
-                            <p className="text-sm text-muted-foreground">Las Vegas, 2023</p>
-                          </div>
-                          <Badge className="self-start">Keynote Speaker</Badge>
-                        </div>
-                        <p className="text-sm mt-1">
-                          "Breaking the Unbreakable: New Approaches to Hardware Security Modules"
-                        </p>
-                      </li>
-                      <li>
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                          <div>
-                            <h4 className="font-medium">Black Hat USA</h4>
-                            <p className="text-sm text-muted-foreground">Las Vegas, 2022</p>
-                          </div>
-                          <Badge className="self-start">Speaker</Badge>
-                        </div>
-                        <p className="text-sm mt-1">"Supply Chain Attacks: Detection and Prevention Strategies"</p>
-                      </li>
-                      <li>
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                          <div>
-                            <h4 className="font-medium">RSA Conference</h4>
-                            <p className="text-sm text-muted-foreground">San Francisco, 2022</p>
-                          </div>
-                          <Badge className="self-start">Panelist</Badge>
-                        </div>
-                        <p className="text-sm mt-1">
-                          "The Future of Zero Trust Architecture in Enterprise Environments"
-                        </p>
-                      </li>
-                      <li>
-                        <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2">
-                          <div>
-                            <h4 className="font-medium">OWASP Global AppSec</h4>
-                            <p className="text-sm text-muted-foreground">Amsterdam, 2021</p>
-                          </div>
-                          <Badge className="self-start">Workshop Leader</Badge>
-                        </div>
-                        <p className="text-sm mt-1">"Hands-on API Security Testing: From Recon to Exploitation"</p>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-
-                <Card className="cyber-card">
-                  <CardHeader className="pb-2">
-                    <FileText className="h-6 w-6 text-accent mb-2" />
-                    <CardTitle>Publications</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-4">
-                      <li>
-                        <h4 className="font-medium">Advanced Web Application Firewall Evasion Techniques</h4>
-                        <p className="text-sm text-muted-foreground">Journal of Cybersecurity, 2023</p>
-                        <Link href="#" className="text-xs text-accent hover:underline inline-flex items-center mt-1">
-                          View Publication
-                          <svg
-                            className="h-3 w-3 ml-1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                        </Link>
-                      </li>
-                      <li>
-                        <h4 className="font-medium">Securing Containerized Applications: Best Practices</h4>
-                        <p className="text-sm text-muted-foreground">International Conference on Security, 2022</p>
-                        <Link href="#" className="text-xs text-accent hover:underline inline-flex items-center mt-1">
-                          View Publication
-                          <svg
-                            className="h-3 w-3 ml-1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                        </Link>
-                      </li>
-                      <li>
-                        <h4 className="font-medium">Threat Hunting Methodologies for Modern Networks</h4>
-                        <p className="text-sm text-muted-foreground">Security Research Quarterly, 2021</p>
-                        <Link href="#" className="text-xs text-accent hover:underline inline-flex items-center mt-1">
-                          View Publication
-                          <svg
-                            className="h-3 w-3 ml-1"
-                            xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
-                            <polyline points="15 3 21 3 21 9" />
-                            <line x1="10" y1="14" x2="21" y2="3" />
-                          </svg>
-                        </Link>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
+                <Publications/>
+                <Conferences/>
               </div>
             </div>
 
             <div>
               <h2 className="text-2xl font-bold mb-4">Languages</h2>
-              <div className="grid grid-cols-1 gap-6">
-                <Card className="cyber-card">
-                  <CardHeader className="pb-2">
-                    <Globe className="h-6 w-6 text-accent mb-2" />
-                    <CardTitle>Language Proficiency</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ul className="space-y-3">
-                      <li>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-medium">English</span>
-                          <span className="text-sm text-muted-foreground">Native</span>
-                        </div>
-                        <div className="w-full bg-secondary/30 rounded-full h-2">
-                          <div className="bg-accent h-2 rounded-full" style={{ width: "100%" }}></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-medium">Spanish</span>
-                          <span className="text-sm text-muted-foreground">Fluent</span>
-                        </div>
-                        <div className="w-full bg-secondary/30 rounded-full h-2">
-                          <div className="bg-accent h-2 rounded-full" style={{ width: "90%" }}></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-medium">French</span>
-                          <span className="text-sm text-muted-foreground">Intermediate</span>
-                        </div>
-                        <div className="w-full bg-secondary/30 rounded-full h-2">
-                          <div className="bg-accent h-2 rounded-full" style={{ width: "65%" }}></div>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="flex justify-between items-center mb-1">
-                          <span className="font-medium">German</span>
-                          <span className="text-sm text-muted-foreground">Basic</span>
-                        </div>
-                        <div className="w-full bg-secondary/30 rounded-full h-2">
-                          <div className="bg-accent h-2 rounded-full" style={{ width: "30%" }}></div>
-                        </div>
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
+              <Languages/>
             </div>
           </div>
         </div>

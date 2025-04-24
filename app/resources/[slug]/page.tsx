@@ -5,6 +5,7 @@ import { ChevronLeft, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { createClient } from "@/lib/supabase/server"
+import BlogContent from "@/components/blog-content"
 
 
 export async function generateMetadata({ params }: { params: { slug: string } }) {
@@ -105,10 +106,9 @@ export async function generateMetadata({ params }: { params: { slug: string } })
               />
             </div>
   
-            <div
-              className="cyber-card p-8 rounded-lg prose prose-lg dark:prose-invert max-w-none"
-              dangerouslySetInnerHTML={{ __html: resource.content }}
-            />
+            <div className="cyber-card p-8 rounded-lg prose prose-lg dark:prose-invert max-w-none">
+              <BlogContent content={resource.content} />
+            </div>
           </div>
         </div>
       </div>

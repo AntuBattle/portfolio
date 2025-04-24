@@ -19,7 +19,7 @@ export default function ResourcesPage({
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="space-y-2 text-center mb-8">
           <h1 className="text-4xl font-bold">Resources</h1>
           <p className="text-muted-foreground">

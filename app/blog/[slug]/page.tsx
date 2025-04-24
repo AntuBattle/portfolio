@@ -43,7 +43,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   }
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="mx-auto px-4 py-12 bg-muted/30">
       <div className="max-w-3xl mx-auto">
         <Button asChild variant="ghost" className="mb-8">
           <a href="/blog" className="flex items-center gap-2">

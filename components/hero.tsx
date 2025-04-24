@@ -7,7 +7,6 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 
 export default function Hero() {
-  const [typedText, setTypedText] = useState("")
   const fullText = "Cybersecurity Engineer"
   const [opacity, setOpacity] = useState(1);
 
@@ -53,8 +52,8 @@ export default function Hero() {
 
       <div className="absolute bottom-10 left-0 right-0 flex justify-center">
         <motion.div
-          initial={{ opacity: 0.8, y: -130}}
-          animate={{ opacity: 1, y: -120 }}
+          initial={{ opacity: 1, y: -70}}
+          animate={{ opacity: 0.4, y: -50 }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
         >
           <Link href="#PfP">

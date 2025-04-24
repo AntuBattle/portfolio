@@ -25,8 +25,13 @@ export default function Navbar() {
     }
 
     const handleScroll = () => {
+
+      let scrolled = false;
+      if(!scrolled){
+        scrolled = scrolled ? true : window.scrollY > 10
+      }
       setNavbarVisible(window.scrollY > window.innerHeight)
-      setScrolled(window.scrollY > 10)
+      setScrolled(scrolled)
     }
 
     window.addEventListener("scroll", handleScroll)

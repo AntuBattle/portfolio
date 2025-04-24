@@ -9,11 +9,11 @@ export const metadata = {
 
 export default function ProjectsPage() {
   return (
-    <div className="container mx-auto px-4 py-12">
-      <div className="max-w-5xl mx-auto">
+    <div className="mx-auto px-4 py-12 bg-muted/30">
+      <div className="max-w-7xl mx-auto">
         <div className="space-y-2 text-center mb-12">
           <h1 className="text-4xl font-bold">My Projects</h1>
-          <p className="text-muted-foreground">Showcasing my work in cybersecurity and secure development</p>
+          <p className="text-muted-foreground">These are the projects I have worked on in the past - feel free to take a look! Hopefully they provide educational insight for you as they did for me.</p>
         </div>
 
         <Suspense fallback={<ProjectsListSkeleton />}>

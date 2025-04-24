@@ -5,6 +5,7 @@ import { ChevronLeft, Github, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { createClient } from "@/lib/supabase/server"
+import BlogContent from "@/components/blog-content"
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const supabase = await createClient()
@@ -40,33 +41,10 @@ export default async function ProjectPage({ params }: { params: { slug: string }
   }
 
   // Placeholder project content if no content is available
-  const projectContent =
-    project.content ||
-    `
-    <h2>Project Overview</h2>
-    <p>This project was developed to address critical security challenges in modern applications. It combines cutting-edge technologies with proven security practices to deliver a robust solution.</p>
-    
-    <h2>Key Features</h2>
-    <ul>
-      <li>Advanced threat detection and prevention</li>
-      <li>Real-time monitoring and alerting</li>
-      <li>Comprehensive logging and audit trails</li>
-      <li>Secure authentication and authorization</li>
-      <li>Encrypted data storage and transmission</li>
-    </ul>
-    
-    <h2>Technical Implementation</h2>
-    <p>The implementation leverages a microservices architecture with containerized components for scalability and maintainability. Security was built into every layer of the application, from the infrastructure to the user interface.</p>
-    
-    <h2>Challenges and Solutions</h2>
-    <p>One of the main challenges was balancing security with usability. This was addressed through careful UX design and performance optimization to ensure that security measures didn't negatively impact the user experience.</p>
-    
-    <h2>Results and Impact</h2>
-    <p>The project successfully improved security posture while maintaining excellent performance metrics. It has been deployed in production environments and has effectively prevented several potential security incidents.</p>
-  `
+  const projectContent = project.content
 
   return (
-    <div className="container mx-auto px-4 py-12">
+    <div className="mx-auto px-4 py-12 bg-muted/30">
       <div className="max-w-4xl mx-auto">
         <Button asChild variant="ghost" className="mb-8">
           <Link href="/projects" className="flex items-center gap-2">
@@ -83,7 +61,7 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             <div className="flex flex-wrap gap-3 mb-8">
               {project.technologies &&
                 project.technologies.map((tech: string, index: number) => (
-                  <Badge key={index} variant="secondary" className="bg-secondary/50 text-sm">
+                  <Badge key={index} variant="secondary" className="bg-accent/20 text-sm">
                     {tech}
                   </Badge>
                 ))}
@@ -129,10 +107,9 @@ export default async function ProjectPage({ params }: { params: { slug: string }
             />
           </div>
 
-          <div
-            className="cyber-card p-8 rounded-lg prose prose-lg dark:prose-invert max-w-none"
-            dangerouslySetInnerHTML={{ __html: projectContent }}
-          />
+          <div className="cyber-card p-8 rounded-lg prose prose-lg dark:prose-invert max-w-none">
+            <BlogContent content = {projectContent} />
+          </div>
         </div>
       </div>
     </div>
