@@ -48,10 +48,10 @@ export default function Home() {
                 secure system architecture.
               </p>
               <div className="flex flex-wrap gap-4 items-center justify-center md:justify-start">
-                <Button asChild size="lg" className="rounded-md">
+                <Button asChild size="lg" className="rounded-md bg-accent/80">
                   <Link href="/projects">View My Work</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="rounded-md">
+                <Button asChild variant="outline" size="lg" className="rounded-md border-accent hover:bg-accent/80">
                   <Link href="/contact">Get In Touch</Link>
                 </Button>
               </div>
@@ -74,7 +74,7 @@ export default function Home() {
                   href="https://github.com/AntuBattle"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
+                  className="bg-card hover:bg-card/80 hover:border-accent p-3 rounded-full transition-colors cyber-border"
                   aria-label="GitHub Profile"
                 >
                   <Github className="h-6 w-6 text-accent" />
@@ -83,14 +83,14 @@ export default function Home() {
                   href="https://www.linkedin.com/in/antonio-battaglia-24a20022b/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
+                  className="bg-card hover:bg-card/80 p-3 hover:border-accent rounded-full transition-colors cyber-border"
                   aria-label="LinkedIn Profile"
                 >
                   <Linkedin className="h-6 w-6 text-accent" />
                 </Link>
                 <Link
                   href="mailto:antoniobattaglia01@gmail.com"
-                  className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
+                  className="bg-card hover:bg-card/80 p-3 hover:border-accent rounded-full transition-colors cyber-border"
                   aria-label="Email Me"
                 >
                   <Mail className="h-6 w-6 text-accent" />
@@ -99,7 +99,7 @@ export default function Home() {
                   href="https://app.hackthebox.com/profile/1872566"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-card hover:bg-card/80 p-3 rounded-full transition-colors cyber-border"
+                  className="bg-card hover:bg-card/80 p-3 hover:border-accent rounded-full transition-colors cyber-border"
                 >
                   <SimpleIcon icon={siHackthebox} className="h-6 w-6 text-accent" />
                 </Link>
@@ -143,13 +143,13 @@ export default function Home() {
               </p>
 
               <div className="pt-4 flex flex-wrap gap-4">
-                <Button asChild variant="outline" className="gap-2">
+                <Button asChild variant="outline" className="gap-2 hover:bg-background hover:border-accent">
                   <Link href="/about">
                     About Me
                     <ChevronRight className="h-4 w-4" />
                   </Link>
                 </Button>
-                <Button asChild variant="outline" className="gap-2">
+                <Button asChild variant="outline" className="gap-2 hover:bg-background hover:border-accent">
                   <Link href="/blog">
                     Read My Blog
                     <ChevronRight className="h-4 w-4" />
@@ -225,7 +225,7 @@ export default function Home() {
           </Suspense>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" className="gap-2">
+            <Button asChild variant="outline" className="gap-2 hover:bg-background hover:border-accent">
               <Link href="/blog">
                 View All Articles
                 <ChevronRight className="h-4 w-4" />
@@ -249,7 +249,7 @@ export default function Home() {
           </Suspense>
 
           <div className="text-center mt-12">
-            <Button asChild variant="outline" className="gap-2">
+            <Button asChild variant="outline" className="gap-2 hover:bg-background hover:border-accent">
               <Link href="/projects">
                 View All Projects
                 <ExternalLink className="h-4 w-4" />
@@ -308,7 +308,7 @@ export default function Home() {
           </div>
 
           <div className="text-center">
-            <Button asChild size="lg" className="rounded-md">
+            <Button asChild size="lg" className="rounded-md bg-accent/80">
               <Link href="/resources">Browse All Resources</Link>
             </Button>
           </div>

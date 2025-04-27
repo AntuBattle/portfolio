@@ -24,7 +24,7 @@ export default function NotFound() {
           </code>
         </pre>
       </div>
-      <Button asChild className="gap-2">
+      <Button asChild className="gap-2 bg-accent/80">
         <Link href="/">
           <Home className="h-4 w-4" />
           Back to Home

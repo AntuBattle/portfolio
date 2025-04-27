@@ -1,6 +1,3 @@
-"use client"
-
-import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { Github, ExternalLink } from "lucide-react"
@@ -21,38 +18,31 @@ type Project = {
   featured: boolean
 }
 
-export default function ProjectsList() {
-  const [projects, setProjects] = useState<Project[]>([])
-  const [loading, setLoading] = useState(true)
+export default async function ProjectsList() {
+    const supabase = await createClient()
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const supabase = createClient()
+    let query = supabase.from("projects").select("*").order("created_at", { ascending: false })
 
-      const { data, error } = await supabase.from("projects").select("*").order("created_at", { ascending: false })
+    const {data: projects_list, error} = await query
 
-      if (error) {
-        console.error("Error fetching projects:", error)
-      } else {
-        setProjects(data || [])
-      }
-
-      setLoading(false)
+    if (error) {
+      console.error("Error fetching projects:", error)
+    } else {
+      
+    if (projects_list.length === 0) {
+      return (
+        <div className="text-center py-12">
+          <h3 className="text-lg font-medium">No projects found</h3>
+          <p className="text-muted-foreground mt-2">
+            Please try reloading the page. If the problem persists, please contact me via the contact page. 
+          </p>
+        </div>
+      )
+    }
     }
 
-    fetchProjects()
-  }, [])
 
-  if (loading) {
-    return (
-      <div className="text-center py-8">
-        <div className="animate-spin h-8 w-8 border-4 border-accent border-t-transparent rounded-full mx-auto mb-4"></div>
-        <p className="text-muted-foreground">Loading projects...</p>
-      </div>
-    )
-  }
-
-  const displayProjects = projects
+  const displayProjects = projects_list as Project[]
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -106,7 +96,7 @@ export default function ProjectsList() {
                 </Link>
               </Button>
             )}
-            <Button asChild size="sm">
+            <Button asChild size="sm" className="bg-accent/80 ">
               <Link href={`/projects/${project.slug}`}>Details</Link>
             </Button>
           </CardFooter>

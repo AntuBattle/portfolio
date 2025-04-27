@@ -8,55 +8,41 @@ import { createClient } from "@/lib/supabase/server"
 import BlogContent from "@/components/blog-content"
 
 
-export async function generateMetadata({ params }: { params: { slug: string } }) {
-    const supabase = createClient()
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+    const supabase = await  createClient();
+    const { slug } = await params; 
   
     const { data: resource } = await supabase
       .from("resources")
       .select("title, description")
-      .eq("slug", params.slug)
+      .eq("slug", slug)
       .single()
   
     if (!resource) {
-      // Try to find in placeholder data
-      const placeholderResource = placeholderResources.find((r) => r.slug === params.slug)
-  
-      if (!placeholderResource) {
-        return {
-          title: "Resource Not Found",
-          description: "The requested resource could not be found.",
-        }
+          notFound()
       }
-  
-      return {
-        title: `${placeholderResource.title} | Resources`,
-        description: placeholderResource.description,
-      }
-    }
-  
+
     return {
       title: `${resource.title} | Resources`,
       description: resource.description,
     }
   }
   
-  export default async function ResourcePage({ params }: { params: { slug: string } }) {
-    const supabase = createClient()
+  export default async function ResourcePage({ params }: { params: Promise<{ slug: string }> }) {
+    const supabase = await createClient()
+    const { slug } = await params
   
     // Try to fetch from database
-    const { data: resource, error } = await supabase.from("resources").select("*").eq("slug", params.slug).single()
-  
-    // If not found in database, try to find in placeholder data
-    if (error || !resource) {
-      const placeholderResource = placeholderResources.find((r) => r.slug === params.slug)
-  
-      if (!placeholderResource) {
-        notFound()
-      }
-  
-      // Use placeholder resource
-      return renderResourcePage(placeholderResource)
-    }
+    const { data: resource, error } = await supabase.from("resources").select("*").eq("slug", slug).single()
+
+     if (!resource){
+       return (
+        <div className="p-6 border border-destructive/30 rounded-lg bg-destructive/5 text-center">
+          <h3 className="text-lg font-semibold mb-2">Resource Not Found</h3>  
+          <p className="text-muted-foreground">Please try again later.</p>
+        </div>
+       )
+     } 
   
     // Use database resource
     return renderResourcePage(resource)

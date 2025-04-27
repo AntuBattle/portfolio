@@ -4,7 +4,7 @@ import type React from "react"
 
 import { useState, useTransition } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
-import { Search, Loader2, X, Filter, ChevronDown, ChevronUp, BookOpen, Globe, GraduationCap } from "lucide-react"
+import { Search, Loader2, X, Filter, ChevronDown, ChevronUp, BookOpen, Globe, GraduationCap, Wrench, Dumbbell, PenTool, FileText } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -13,11 +13,12 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 // Define resource categories
 const resourceTypes = [
   { name: "Book", icon: <BookOpen className="h-3 w-3 mr-1" /> },
-  { name: "Web Content", icon: <Globe className="h-3 w-3 mr-1" /> },
+  { name: "Article", icon: <FileText className="h-3 w-3 mr-1" /> },
   { name: "Course", icon: <GraduationCap className="h-3 w-3 mr-1" /> },
-  { name: "Tool", icon: null },
-  { name: "Reference", icon: null },
-  { name: "Training Platform", icon: null },
+  { name: "Tool", icon: <Wrench className="h-3 w-3 mr-1" /> },
+  { name: "Blog", icon: <PenTool className="h-3 w-3 mr-1" /> },
+  { name: "Training Platform", icon: <Dumbbell className="h-3 w-3 mr-1" /> },
+  { name: "Other Web Content", icon: <Globe className="h-3 w-3 mr-1" /> },
 ]
 
 // Define security topics

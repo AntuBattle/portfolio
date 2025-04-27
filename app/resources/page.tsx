@@ -8,14 +8,17 @@ export const metadata = {
   description: "Recommended books, tools, and resources for cybersecurity professionals and enthusiasts.",
 }
 
-export default function ResourcesPage({
+export default async function ResourcesPage({
   searchParams,
 }: {
-  searchParams: { q?: string; types?: string; topics?: string }
+  searchParams: Promise<{ q?: string; types?: string; topics?: string }>
 }) {
-  const searchQuery = searchParams.q || ""
-  const resourceTypes = searchParams.types ? searchParams.types.split(",") : undefined
-  const securityTopics = searchParams.topics ? searchParams.topics.split(",") : undefined
+
+  const {q, types, topics} = await searchParams
+
+  const searchQuery = q || ""
+  const resourceTypes = types ? types.split(",") : undefined
+  const securityTopics = topics ? topics.split(",") : undefined
 
   return (
     <div className="container mx-auto px-4 py-12">

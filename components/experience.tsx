@@ -7,7 +7,7 @@ function Experience(){
                   <p className="text-muted-foreground mb-4">Università degli Studi di Messina | 12/2024 - Present</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>
-                    Developed together with a team at university an Intrusion Detection System that analyzes hardware fingerprints of devices, with a current accuracy of 98%, available on GitHub
+                    Developed, together with a team at the University of Messina, an Intrusion Detection System that analyzes hardware fingerprints of devices, with a current accuracy of 93% and a recall of 98%, available on GitHub
                     </li>
                     <li>Currently developing machine learning models for assessing and fixing ModBus/TCP and CanBus Protocol vulnerabilities</li>
                     <li>Developed a ModBus/TCP comprehensive dataset for signal analysis available on GitHub</li>

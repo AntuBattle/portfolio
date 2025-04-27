@@ -54,7 +54,7 @@ export default function FeaturedBlogPosts() {
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {displayPosts.map((post) => (
-          <BlogCard key={post.id} post={post} />
+          <BlogCard key={post.id} post={post}/>
         ))}
       </div>
     </div>

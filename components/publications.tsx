@@ -17,7 +17,7 @@ function Publications(){
                         <h4 className="font-medium">Sacred or Uncanny? Exploring visitors' reaction to a robotic saint in exhibition.</h4>
                         <p className="text-sm text-foreground/80">Realized a framework for data extraction and manipulation that allowed smoother and higher quality training of the model, which was being carried forward by and together with other paper's co-authors, resulting in an improvenent of SanTO Robot's performance.</p>
                         <p className="text-sm text-muted-foreground">IEEE 33rd International Workshop on Robot and Human Communication (ROMAN), 2024</p>
-                        <Link href="" className="text-xs text-accent hover:underline inline-flex items-center mt-1">
+                        <Link href="https://ieeexplore.ieee.org/abstract/document/10731471" className="text-xs text-accent hover:underline inline-flex items-center mt-1" target="_blank">
                           View Publication
                           <svg
                             className="h-3 w-3 ml-1"

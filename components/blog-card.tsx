@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import Image from "next/image";
 import { formatDistanceToNow } from "date-fns";
 import { Badge } from "@/components/ui/badge";
+import { ChevronRightIcon } from "lucide-react";
 
 interface PostProps {
   slug: string
@@ -17,7 +18,7 @@ interface PostCard {
     post: PostProps
 }
 
-function BlogCard({ post }: PostCard){
+function BlogCard({ post, }: PostCard){
 
     return(
         <Link href={`/blog/${post.slug}`}>
@@ -29,8 +30,8 @@ function BlogCard({ post }: PostCard){
           transition-all duration-300
           transform hover:-translate-y-2 hover:shadow-xl
           flex flex-col h-full
-          relative 
-        "
+          relative"
+        
       >
         <div className="relative h-48 w-full">
           <Image
@@ -42,17 +43,17 @@ function BlogCard({ post }: PostCard){
         </div>
 
         <CardHeader>
-            <div className="flex flex-wrap gap-2">
+          <CardTitle className="text-xl md:text-2xl">{post.title}</CardTitle>
+          <CardDescription>
+            {formatDistanceToNow(new Date(post.published_at), { addSuffix: true })}
+          </CardDescription>
+          <div className="flex flex-wrap gap-2">
                 {post.tags?.map((tag: string, i: number) => (
                 <Badge key={i} variant="secondary" className="bg-accent/30" >
                     {tag}
                 </Badge>
                 ))}
             </div>
-          <CardTitle className="text-xl md:text-2xl">{post.title}</CardTitle>
-          <CardDescription>
-            {formatDistanceToNow(new Date(post.published_at), { addSuffix: true })}
-          </CardDescription>
         </CardHeader>
 
         <CardContent>
@@ -63,10 +64,11 @@ function BlogCard({ post }: PostCard){
 
         <CardFooter>
           {/* Read Now button */}
-        <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-          <button className="text-sm text-accent">
-            Read Now &gt;
+        <div className="px-3 py-1 rounded-full bg-accent/20 absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 gap-2 flex flex-wrap items-center">
+          <button className="text-foreground text-sm">
+            Read Now
           </button>
+          <ChevronRightIcon className="text-foreground h-4 w-4 text-sm" />
         </div>
         </CardFooter>
       </Card>

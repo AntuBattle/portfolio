@@ -31,7 +31,7 @@ function Languages(){
                         <Language language="Italian" level="Native" percentage="100%"/>
                       </li> 
                       <li>
-                        <Language language="English" level="Full Working Proficency (CAE, C1)" percentage="95%"/>
+                        <Language language="English" level="Full Working Proficency (CAE, C1)" percentage="98%"/>
                       </li>
                       <li>
                         <Language language="Japanese" level="Limited Working Proficency (N3)" percentage="70%"/>

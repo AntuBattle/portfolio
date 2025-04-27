@@ -12,9 +12,9 @@ export const metadata = {
 export default async function BlogPage({
   searchParams,
 }: {
-  searchParams: { q?: string; categories?: string; sort?: string }
+  searchParams: Promise<{ q?: string; categories?: string; sort?: string }>
 }) {
-  const { q, categories, sort } = await searchParams
+  const { q, categories, sort } = await searchParams;
   const searchQuery = q || ""
   const search_categories = categories ? categories.split(",") : undefined
   const sortOrder = sort || "newest"
