@@ -10,7 +10,7 @@ interface CodeBlockProps {
 
 export default function CodeBlock({ code, language }: CodeBlockProps) {
   return (
-    <Highlight theme={themes.nightOwl} code={code.trim()} language={language as any}>
+    <Highlight theme={themes.oneDark} code={code.trim()} language={language as any}>
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={`${className} p-4 rounded-md overflow-auto my-4 cyber-card`} style={style as React.CSSProperties}>
           <div className="flex items-center justify-between mb-2">

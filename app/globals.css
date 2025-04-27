@@ -65,6 +65,7 @@
   font-family: "Courier New", monospace;
 }
 
+
 .code-block {
   @apply bg-card p-4 rounded-md border border-border;
   font-family: "Courier New", monospace;

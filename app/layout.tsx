@@ -1,12 +1,12 @@
 import type React from "react"
 import type { Metadata, Viewport } from "next"
-import { Fira_Mono } from "next/font/google"
+import {Poppins} from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 
-const inter = Fira_Mono({ weight: ["400", "700"], subsets: ["latin"] })
+const inter = Poppins({ weight: ["400", "700"], subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: "Cybersecurity Portfolio Antonio Battaglia",
