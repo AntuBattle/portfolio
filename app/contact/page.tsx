@@ -23,7 +23,7 @@ export default function ContactPage() {
               </div>
             </div>
             <h3 className="text-lg font-semibold mb-2">Email</h3>
-            <p className="text-muted-foreground">contact@example.com</p>
+            <p className="text-muted-foreground">antoniobattaglia01@gmail.com</p>
           </div>
 
           <div className="cyber-card p-6 text-center">
@@ -33,7 +33,7 @@ export default function ContactPage() {
               </div>
             </div>
             <h3 className="text-lg font-semibold mb-2">Location</h3>
-            <p className="text-muted-foreground">San Francisco, CA</p>
+            <p className="text-muted-foreground">Messina, Italy</p>
           </div>
 
           <div className="cyber-card p-6 text-center">
@@ -43,7 +43,7 @@ export default function ContactPage() {
               </div>
             </div>
             <h3 className="text-lg font-semibold mb-2">Phone</h3>
-            <p className="text-muted-foreground">+1 (555) 123-4567</p>
+            <p className="text-muted-foreground">+39 327 589 7526</p>
           </div>
         </div>
 
