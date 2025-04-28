@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { Shield, Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
+import Image from "next/image"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -67,10 +68,14 @@ export default function Navbar() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <Shield
+            <Image
+              src="/images/logo.png"
+              alt="Logo"
               className={`h-8 w-8 ${
                 navbarVisible ? "text-accent" : "text-black"
               }`}
+              width={800} 
+              height={800}
             />
             <span
               className={`text-xl font-bold ${

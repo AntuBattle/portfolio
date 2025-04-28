@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { Shield, Github, Linkedin, Mail } from "lucide-react"
+import Image from "next/image"
 
 export default function Footer() {
   return (
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <Shield className="h-6 w-6 text-accent" />
+              <Image src="/images/logo.png" alt="Logo" className="h-6 w-6 text-accent" width={500} height={500} />
               <Link href="/">
               <span className="text-lg font-bold">Antonio Battaglia</span>
               </Link>
