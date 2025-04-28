@@ -52,8 +52,8 @@ export default function Hero() {
 
       <div className="absolute bottom-10 left-0 right-0 flex justify-center">
         <motion.div
-          initial={{ opacity: 1, y: -70}}
-          animate={{ opacity: 0.4, y: -50 }}
+          initial={{ opacity: 1, y: -90}}
+          animate={{ opacity: 0.4, y: -70 }}
           transition={{ duration: 1.5, repeat: Number.POSITIVE_INFINITY }}
         >
           <Link href="#PfP">

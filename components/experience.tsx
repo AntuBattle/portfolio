@@ -15,7 +15,7 @@ function Experience(){
                 </div>
 
                 <div className="cyber-card p-6">
-                  <h3 className="text-xl font-semibold mb-1">Dashboard Designer and Developer - Zancle E-Drive Forumla SAE Team</h3>
+                  <h3 className="text-xl font-semibold mb-1">Dashboard Designer and Developer - Zancle E-Drive Formula SAE Team</h3>
                   <p className="text-muted-foreground mb-4">Università degli Studi di Messina | 05/2024 - 09/2024</p>
                   <ul className="list-disc pl-5 space-y-2">
                     <li>Designed the UI and the firmware for the STM32 dashboard that is now utilized in
