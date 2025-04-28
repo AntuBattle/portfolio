@@ -67,15 +67,15 @@ export default function Navbar() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
+          <Link href="/" className="flex items-center space-x-2 h-full">
             <Image
               src="/images/logo.png"
               alt="Logo"
-              className={`h-8 w-8 ${
-                navbarVisible ? "text-accent" : "text-black"
+              className={`h-full w-auto ${
+                navbarVisible ? "opacity-100" : "opacity-0"
               }`}
-              width={800} 
-              height={800}
+              width={500} 
+              height={500}
             />
             <span
               className={`text-xl font-bold ${
