@@ -14,11 +14,11 @@ interface PostProps {
   tags: string[]
 }
 
-interface PostCard {
+interface Post {
     post: PostProps
 }
 
-function BlogCard({ post, }: PostCard){
+function BlogCard({ post, }: Post){
 
     return(
         <Link href={`/blog/${post.slug}`}>
