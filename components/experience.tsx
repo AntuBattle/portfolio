@@ -21,9 +21,9 @@ function Experience(){
                     <li>Designed the UI and the firmware for the STM32 dashboard that is now utilized in
 the university's official Formula SAE team’s car
 </li>
-                    <li>Performed malware analysis and reverse engineering</li>
-                    <li>Assisted in incident response and forensic investigations</li>
-                    <li>Contributed to the development of security automation scripts</li>
+                    <li>Enabled real-time display of tire temperature, engine status, and lap times, improving driver situational
+                    awareness</li>
+                    <li>Integrated CAN bus data streams and implemented fail-safe mechanisms in embedded C</li>
                   </ul>
                 </div>
 
