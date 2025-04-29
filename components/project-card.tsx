@@ -51,43 +51,43 @@ function ProjectCard({ project, }: Project){
             </div>
         </CardHeader>
 
-        <CardContent>
+        <CardContent className="flex-1">
           <p className="text-muted-foreground line-clamp-3">
             {project.description}
           </p>
         </CardContent>
 
-        <CardFooter className="flex justify-between">
-  {project.github_url && (
-    <Button asChild variant="outline" size="sm">
-      <Link
-        href={project.github_url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1"
-      >
-        <Github className="h-4 w-4" />
-        Code
-      </Link>
-    </Button>
-  )}
-  {project.demo_url && (
-    <Button asChild variant="outline" size="sm">
-      <Link
-        href={project.demo_url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex items-center gap-1"
-      >
-        <ExternalLink className="h-4 w-4" />
-        Demo
-      </Link>
-    </Button>
-  )}
-  <Button asChild size="sm" className="bg-accent/80 ">
-    <Link href={`/projects/${project.slug}`}>Details</Link>
-  </Button>
-</CardFooter>
+        <CardFooter className="flex justify-between mt-auto">
+          {project.github_url && (
+            <Button asChild variant="outline" size="sm">
+              <Link
+                href={project.github_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+              >
+                <Github className="h-4 w-4" />
+                  Code
+              </Link>
+            </Button>
+          )}
+          {project.demo_url && (
+            <Button asChild variant="outline" size="sm">
+              <Link
+                href={project.demo_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1"
+              >
+                <ExternalLink className="h-4 w-4" />
+                Demo
+              </Link>
+            </Button>
+          )}
+          <Button asChild size="sm" className="bg-accent/80 ">
+            <Link href={`/projects/${project.slug}`}>Details</Link>
+          </Button>
+        </CardFooter>
       </Card>
     )
 }
